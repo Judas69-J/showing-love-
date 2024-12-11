@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaii Proposal</title>
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 50px;
+        }
+        h1 {
+            color: #ff66b3;
+            font-size: 3rem;
+            text-shadow: 2px 2px #ff99cc;
+        }
+        .heart {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background-color: #ff66b3;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: pump 1s infinite;
+            margin-bottom: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #ff66b3;
+            border-radius: 50%;
+        }
+        .heart:before {
+            top: -40px;
+            left: 0;
+        }
+        .heart:after {
+            top: 0;
+            left: 40px;
+        }
+        .broken-heart:before,
+        .broken-heart:after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #808080;
+            border-radius: 50%;
+        }
+        .broken-heart:before {
+            top: -40px;
+            left: 0;
+            clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+        }
+        .broken-heart:after {
+            top: 0;
+            left: 40px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+        }
+        @keyframes pump {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .heart-button {
+            background-color: #ffccf2;
+            color: #ff0066;
+            font-size: 1.5rem;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 3px 3px #ff99cc;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 5px;
+        }
+        .heart-button:hover {
+            transform: scale(1.1);
+            box-shadow: 5px 5px #ff80bf;
+        }
+        .message {
+            display: none;
+            font-size: 2rem;
+            color: #ff1a8c;
+            margin-top: 30px;
+        }
+        .message.no {
+            color: #808080;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be mine?:3 </h1>
+        <div class="heart" id="heart"></div>
+        <div class="button-container">
+            <button class="heart-button" onclick="showMessage('yes')">YES</button>
+            <button class="heart-button" onclick="showMessage('no')">NO</button>
+        </div>
+        <div class="message yes">YAYYAYAYAYAYAYYAYAYYAYAYAYYAYAYAYAYYAYAYA MWAAAAAAAAAAAAAAAA I LOVE YOU SO MUCHHHHHHHH YOU ARE MY BF QUANYYY!🫶🏼</div>
+        <div class="message no">
+            Oh okay◞‸◟
+        </div>
+    </div>
+    <script>
+        function showMessage(response) {
+            const yesMessage = document.querySelector('.message.yes');
+            const noMessage = document.querySelector('.message.no');
+            const heart = document.getElementById('heart');
+
+            if (response === 'yes') {
+                yesMessage.style.display = 'block';
+                noMessage.style.display = 'none';
+                heart.style.backgroundColor = '#ff66b3';  // Normal heart color
+                heart.innerHTML = '';  // Clear broken heart parts
+                heart.classList.remove('broken-heart'); // Remove broken heart effect
+            } else {
+                noMessage.style.display = 'block';
+                yesMessage.style.display = 'none';
+                heart.style.backgroundColor = 'transparent'; // No color for broken heart
+                heart.innerHTML = '';  // Clear the heart
+                heart.classList.add('broken-heart'); // Apply broken heart effect
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
